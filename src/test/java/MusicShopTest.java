@@ -18,6 +18,7 @@ public class MusicShopTest {
     SheetMusic sheetMusic;
 
     MusicShop musicShop;
+    MusicShop musicShop2;
 
     @Before
     public void before(){
@@ -29,6 +30,7 @@ public class MusicShopTest {
         sheetMusic = new SheetMusic("Guitar for Beginners", 25.0, 30.0);
 
         musicShop = new MusicShop("Tooley's", 500.0);
+        musicShop2 = new MusicShop("Cameron's", 1500.0);
     }
 
     @Test
@@ -49,5 +51,16 @@ public class MusicShopTest {
         musicShop.addItemToStock(guitar);
         musicShop.sellItem(guitar);
         assertEquals(600.0, musicShop.getCashInRegister(), 0.01);
+    }
+
+    @Test
+    public void canCalculateMarkup(){
+        musicShop2.addItemToStock(guitar);
+        musicShop2.addItemToStock(tuba);
+        musicShop2.addItemToStock(flute);
+        musicShop2.addItemToStock(guitarString);
+        musicShop2.addItemToStock(sheetMusic);
+        assertEquals(824.0, musicShop2.getCashInRegister(), 0.01);
+        assertEquals(257.0, musicShop2.calculateTotalMarkup(), 0.01);
     }
 }

@@ -48,4 +48,12 @@ public class MusicShop {
             stock.remove(item);
         }
     }
+
+    public double calculateTotalMarkup() {
+        Double total = 0.0;
+        for (ISell item : stock){
+            total += item.markUp();
+        }
+        return total;
+    }
 }
