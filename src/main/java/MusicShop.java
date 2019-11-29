@@ -11,11 +11,13 @@ public class MusicShop {
     private String name;
     private ArrayList<ISell> stock;
     private Double cashInRegister;
+    private ArrayList<IDealable> itemsOnSale;
 
     public MusicShop(String name, Double cashInRegister){
         this.name = name;
         this.cashInRegister = cashInRegister;
         this.stock = new ArrayList<ISell>();
+        this.itemsOnSale = new ArrayList<IDealable>();
     }
 
     public String getName() {
@@ -32,6 +34,10 @@ public class MusicShop {
 
     public void setCashInRegister(Double cashInRegister) {
         this.cashInRegister = cashInRegister;
+    }
+
+    public ArrayList<IDealable> getItemsOnSale() {
+        return itemsOnSale;
     }
 
     public void setName(String name) {
@@ -58,10 +64,20 @@ public class MusicShop {
         return total;
     }
 
-    public void addItemFromStockToDealList(IDealable item, ArrayList<IDealable> sale) {
+    public void addItemFromStockToDealList(IDealable item) {
         if (stock.contains(item)){
-            sale.add(item);
+            itemsOnSale.add(item);
             stock.remove(item);
         }
     }
+
+    public void putItemsOnSale() {
+        ISell itemToPutBackIntoStock = null;
+        for (IDealable item : itemsOnSale){
+            item.deal();
+            itemToPutBackIntoStock = (ISell) item;
+            stock.add(itemToPutBackIntoStock);
+        }
+    }
+
 }

@@ -44,6 +44,6 @@ public abstract class Accessory implements ISell, IDealable {
     }
 
     public void deal(){
-
+        salePrice = salePrice/2;
     }
 }

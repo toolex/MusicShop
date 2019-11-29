@@ -71,19 +71,20 @@ public class MusicShopTest {
     @Test
     public void canAddItemsToDeal(){
         musicShop2.addItemToStock(guitar);
-        ArrayList<IDealable> onSaleItems = new ArrayList<IDealable>();
-        musicShop2.addItemFromStockToDealList(guitar, onSaleItems);
-        assertEquals(1, onSaleItems.size());
+        musicShop2.addItemFromStockToDealList(guitar);
+        assertEquals(1, musicShop2.getItemsOnSale().size());
         assertEquals(0, musicShop2.getStock().size());
     }
 
     @Test
-    public void canPutAllItemsInIDealOnSale(){
+    public void canPutItemInIDealOnSale(){
         musicShop2.addItemToStock(guitar);
-        ArrayList<IDealable> onSaleItems = new ArrayList<IDealable>();
-        musicShop2.addItemFromStockToDealList(guitar, onSaleItems);
-        assertEquals(true, onSaleItems.contains(guitar));
-        Instrument guitarOnSale = (Instrument) onSaleItems.get(0);
+        musicShop2.addItemToStock(guitarString);
+        musicShop2.addItemFromStockToDealList(guitar);
+        musicShop2.addItemFromStockToDealList(guitarString);
+        musicShop2.putItemsOnSale();
+        assertEquals(2, musicShop2.getStock().size());
+
     }
 
 }

@@ -52,7 +52,7 @@ public abstract class Instrument implements IPlay, ISell, IDealable {
     }
 
     public void deal(){
-
+        salePrice = (salePrice - salePrice * 0.1);
     }
 
 }
