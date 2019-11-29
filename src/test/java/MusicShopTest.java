@@ -41,13 +41,13 @@ public class MusicShopTest {
         musicShop.addItemToStock(guitar);
         musicShop.addItemToStock(guitarString);
         assertEquals(2, musicShop.getStock().size());
-        assertEquals(0.0, musicShop.getCashInRegister(), 0.01);
+        assertEquals(299.0, musicShop.getCashInRegister(), 0.01);
     }
 
     @Test
     public void canSellItems(){
         musicShop.addItemToStock(guitar);
         musicShop.sellItem(guitar);
-        assertEquals(800.0, musicShop.getCashInRegister(), 0.01);
+        assertEquals(600.0, musicShop.getCashInRegister(), 0.01);
     }
 }

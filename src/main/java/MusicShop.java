@@ -38,6 +38,7 @@ public class MusicShop {
     }
 
     public void addItemToStock(ISell item) {
+        cashInRegister -= item.getPriceBought();
         stock.add(item);
     }
 
