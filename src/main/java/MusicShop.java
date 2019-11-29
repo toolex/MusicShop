@@ -1,5 +1,6 @@
 import accessories.Accessory;
 import accessories.GuitarString;
+import behaviours.IDealable;
 import behaviours.ISell;
 import instruments.Guitar;
 import instruments.Instrument;
@@ -55,5 +56,12 @@ public class MusicShop {
             total += item.markUp();
         }
         return total;
+    }
+
+    public void addItemFromStockToDealList(IDealable item, ArrayList<IDealable> sale) {
+        if (stock.contains(item)){
+            sale.add(item);
+            stock.remove(item);
+        }
     }
 }

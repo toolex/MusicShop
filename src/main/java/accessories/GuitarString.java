@@ -7,7 +7,4 @@ public class GuitarString extends Accessory implements IDealable {
         super(name, priceBought, salePrice);
     }
 
-    public void deal() {
-
-    }
 }

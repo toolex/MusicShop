@@ -1,8 +1,9 @@
 package accessories;
 
+import behaviours.IDealable;
 import behaviours.ISell;
 
-public abstract class Accessory implements ISell {
+public abstract class Accessory implements ISell, IDealable {
 
     private String name;
     private Double priceBought;
@@ -40,5 +41,9 @@ public abstract class Accessory implements ISell {
 
     public Double markUp(){
         return salePrice - priceBought;
+    }
+
+    public void deal(){
+
     }
 }

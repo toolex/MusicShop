@@ -1,10 +1,11 @@
 package instruments;
 
+import behaviours.IDealable;
 import behaviours.IPlay;
 import behaviours.ISell;
 import enums.Family;
 
-public abstract class Instrument implements IPlay, ISell {
+public abstract class Instrument implements IPlay, ISell, IDealable {
 
     private String name;
     private Family family;
@@ -49,4 +50,9 @@ public abstract class Instrument implements IPlay, ISell {
     public Double markUp(){
         return salePrice - priceBought;
     }
+
+    public void deal(){
+
+    }
+
 }

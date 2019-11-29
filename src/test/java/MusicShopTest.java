@@ -1,11 +1,14 @@
 import accessories.GuitarString;
 import accessories.SheetMusic;
+import behaviours.IDealable;
 import enums.Family;
 import instruments.Flute;
 import instruments.Guitar;
 import instruments.Tuba;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -63,4 +66,17 @@ public class MusicShopTest {
         assertEquals(824.0, musicShop2.getCashInRegister(), 0.01);
         assertEquals(257.0, musicShop2.calculateTotalMarkup(), 0.01);
     }
+
+    @Test
+    public void canAddItemsToDeal(){
+        musicShop2.addItemToStock(guitar);
+        ArrayList<IDealable> onSaleItem = new ArrayList<IDealable>();
+        musicShop2.addItemFromStockToDealList(guitar, onSaleItem);
+        assertEquals(1, onSaleItem.size());
+        assertEquals(0, musicShop2.getStock().size());
+    }
+
+//    @Test
+//    public void
+
 }
