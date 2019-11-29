@@ -1,13 +1,13 @@
 package behaviours;
 
 public interface ISell {
-    public void setPriceBought(Double newPrice);
+     void setPriceBought(Double newPrice);
 
-    public void setSalePrice(Double newPrice);
+     void setSalePrice(Double newPrice);
 
-    public Double markUp();
+     Double markUp();
 
-    public Double getPriceBought();
+     Double getPriceBought();
 
-    public Double getSalePrice();
+     Double getSalePrice();
 }
