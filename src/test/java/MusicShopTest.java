@@ -84,7 +84,7 @@ public class MusicShopTest {
         musicShop2.addItemFromStockToDealList(guitarString);
         musicShop2.putItemsOnSale();
         assertEquals(2, musicShop2.getStock().size());
-
+        assertEquals(70.5, musicShop2.calculateTotalMarkup(), 0.01);
     }
 
 }

@@ -22,8 +22,18 @@ public class GuitarTest {
     }
 
     @Test
-    public void canShowFamily(){
+    public void canShowNameFamilyPriceBoughtANdSold(){
+        assertEquals("Flying V", guitar.getName());
         assertEquals(Family.STRINGS, guitar.getFamily());
+        assertEquals(200.0, guitar.getPriceBought(), 0.01);
+        assertEquals(300.0, guitar.getSalePrice(), 0.01);
+    }
+
+    @Test
+    public void canSetName(){
+        guitar.setName("Jim");
+        assertEquals("Jim", guitar.getName());
+
     }
 
     @Test
