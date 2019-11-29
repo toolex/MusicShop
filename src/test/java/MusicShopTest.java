@@ -4,6 +4,7 @@ import behaviours.IDealable;
 import enums.Family;
 import instruments.Flute;
 import instruments.Guitar;
+import instruments.Instrument;
 import instruments.Tuba;
 import org.junit.Before;
 import org.junit.Test;
@@ -70,13 +71,19 @@ public class MusicShopTest {
     @Test
     public void canAddItemsToDeal(){
         musicShop2.addItemToStock(guitar);
-        ArrayList<IDealable> onSaleItem = new ArrayList<IDealable>();
-        musicShop2.addItemFromStockToDealList(guitar, onSaleItem);
-        assertEquals(1, onSaleItem.size());
+        ArrayList<IDealable> onSaleItems = new ArrayList<IDealable>();
+        musicShop2.addItemFromStockToDealList(guitar, onSaleItems);
+        assertEquals(1, onSaleItems.size());
         assertEquals(0, musicShop2.getStock().size());
     }
 
-//    @Test
-//    public void
+    @Test
+    public void canPutAllItemsInIDealOnSale(){
+        musicShop2.addItemToStock(guitar);
+        ArrayList<IDealable> onSaleItems = new ArrayList<IDealable>();
+        musicShop2.addItemFromStockToDealList(guitar, onSaleItems);
+        assertEquals(true, onSaleItems.contains(guitar));
+        Instrument guitarOnSale = (Instrument) onSaleItems.get(0);
+    }
 
 }
